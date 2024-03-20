@@ -15,6 +15,7 @@ html {
 a {
 	color: #33ccff;
 }
-img {
+img,
+iframe {
 	max-width: 100%;
 }
