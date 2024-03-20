@@ -34,6 +34,7 @@ A5サイズ：148mm x 210mm（≒ 560px x 794px)
 .myBlockFlyer {
 	background-color: #fff;
 	position: relative;
+	line-height: 1;
 	aspect-ratio: var(--ratio);
 	z-index: 1;
 	@media print {
@@ -57,6 +58,61 @@ A5サイズ：148mm x 210mm（≒ 560px x 794px)
 		width: calc(100 / var(--width) * 100%);
 		img {
 			border: 1px solid #000;
+		}
+	}
+	.block01 {
+		position: absolute;
+		margin-top: calc(100 / var(--width) * 100%);
+		color: #000;
+		font-weight: 900;
+		text-align: center;
+		width: 100%;
+		.block01__txt01 {
+			font-size: min(calc(32 / var(--width) * 100vw), 32px);
+			margin-bottom: calc(10 / var(--width) * 100%);
+		}
+		.block01__txt02 {
+			font-size: min(calc(42 / var(--width) * 100vw), 42px);
+		}
+	}
+	.youtube {
+		position: absolute;
+		margin: calc(230 / var(--width) * 100%) var(--containerPadding) 0;
+		.youtube__title {
+			color: #000;
+			font-size: min(calc(20 / var(--width) * 100vw), 20px);
+			font-weight: bold;
+			margin-bottom: calc(20 / var(--width) * 100%);
+		}
+		.youtube__item {
+			* {
+				aspect-ratio: 400 / 300;
+				height: 100%;
+			}
+			@media screen {
+				img {
+					display: none;
+				}
+			}
+			@media print {
+				iframe {
+					display: none;
+				}
+			}
+		}
+	}
+	.detail {
+		background-color: #ccccff;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: var(--containerPadding);
+		.detail__txt01 {
+			font-size: min(calc(24 / var(--width) * 100vw), 24px);
+			font-weight: 900;
+		}
+		.detail__txt02 {
+			font-size: min(calc(16 / var(--width) * 100vw), 16px);
 		}
 	}
 }/* .myBlockFlyer */
