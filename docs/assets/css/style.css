@@ -1,0 +1,8 @@
+@charset "UTF-8";
+html {
+	font-family: "Noto Sans JP", sans-serif;
+}
+.wrapper {
+	max-width: 640px;
+	margin: 0 auto;
+}
