@@ -2,120 +2,121 @@
 /*
 A5サイズ：148mm x 210mm（≒ 560px x 794px)
 */
-
 :root {
-	--width: 560;
-	--height: 794;
-	--width_px: 560px;
-	--height_px: 794px;
-	--ratio: 148 / 210;
-	--containerPadding: calc(15 / var(--width) * 100%);
-	font-family: "Noto Sans JP", sans-serif;
+  --width: 560;
+  --height: 794;
+  --width_px: 560px;
+  --height_px: 794px;
+  --ratio: 148 / 210;
+  --containerPadding: calc(15 / var(--width) * 100%);
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .wrapper {
-	display: grid;
-	gap: 30px 40px;
-	grid-template: auto 1fr / repeat(1, min(100%, var(--width_px)));
-	align-items: flex-start;
-	justify-content: center;
-	min-height: 100vh;
-	padding: clamp(20px, calc((40 / 768) * 100%), 40px);
+  display: grid;
+  gap: 30px 40px;
+  grid-template: auto 1fr/repeat(1, min(100%, var(--width_px)));
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 100vh;
+  padding: clamp(20px, 5.2083333333%, 40px);
 }
 @media only screen and (min-width: 1240px) {
-	.wrapper {
-		grid-template: auto / repeat(2, min(100%, var(--width_px)));
-		align-items: center;
-	}
+  .wrapper {
+    grid-template: auto/repeat(2, min(100%, var(--width_px)));
+    align-items: center;
+  }
 }
 @media print {
-	.wrapper {
-		grid-template-rows: 1fr;
-		padding: 0;
-	}
+  .wrapper {
+    grid-template-rows: 1fr;
+    padding: 0;
+  }
 }
-/* .wrapper */
 
+/* .wrapper */
 .myBlockFlyer {
-	background-color: #fff;
-	position: relative;
-	line-height: 1;
-	aspect-ratio: var(--ratio);
-	z-index: 1;
+  background-color: #fff;
+  position: relative;
+  line-height: 1;
+  aspect-ratio: var(--ratio);
+  z-index: 1;
 }
 @media print {
-	.myBlockFlyer {
-		overflow: hidden;
-	}
+  .myBlockFlyer {
+    overflow: hidden;
+  }
 }
 .myBlockFlyer::after {
-	content: "";
-	border: 1px solid #000;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: var(--containerPadding);
-	z-index: -1;
+  content: "";
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: var(--containerPadding);
+  z-index: -1;
 }
 .myBlockFlyer .logo {
-	position: absolute;
-	margin-top: var(--containerPadding);
-	margin-left: var(--containerPadding);
-	width: calc(100 / var(--width) * 100%);
+  position: absolute;
+  margin-top: var(--containerPadding);
+  margin-left: var(--containerPadding);
+  width: calc(100 / var(--width) * 100%);
 }
 .myBlockFlyer .logo img {
-	border: 1px solid #000;
+  border: 1px solid #000;
 }
-/* .myBlockFlyer */
 
+/* .myBlockFlyer */
 .myBlockContents {
-	position: relative;
+  position: relative;
 }
 @media only screen and (min-width: 1240px) {
-	.myBlockContents {
-		aspect-ratio: var(--ratio);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		overflow: auto;
-	}
+  .myBlockContents {
+    aspect-ratio: var(--ratio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+  }
 }
 @media print {
-	.myBlockContents {
-		display: none;
-	}
+  .myBlockContents {
+    display: none;
+  }
 }
-.myTitle {
-	font-size: min(calc(32 * .2vw), 32px);
-	font-weight: 900;
-	margin-bottom: 30px;
+.myBlockContents .myTitle {
+  font-size: min(6.4vw, 32px);
+  font-weight: 900;
+  margin-bottom: 30px;
 }
+
 .myBlockContents .myList {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .myBlockContents .myList__item {
-	border-bottom: 1px solid currentColor;
-	padding-bottom: 10px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 10px;
 }
 .myBlockContents .myList__title {
-	font-weight: bold;
+  font-weight: bold;
 }
 .myBlockContents .myList__title::before {
-	content: "\25A0";
-	margin-right: 0.5em;
+  content: "■";
+  margin-right: 0.5em;
 }
 .myBlockContents .myList__detail ul {
-	list-style: none;
+  list-style: none;
 }
 .myBlockContents .myList__detail ul li {
-	text-indent: -1em;
-	padding-left: 1em;
+  text-indent: -1em;
+  padding-left: 1em;
 }
 .myBlockContents .myList__detail ul li::before {
-	content: "\30FB";
+  content: "・";
 }
+
 /* .myBlockContents */
