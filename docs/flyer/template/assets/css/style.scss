@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*
-A5サイズ：148mm x 210mm（≒ 560px x 794px)
+B5サイズ：182mm x 257mm（≒ 688px x 972px)
 */
 
 :root {
-	--width: 560;
-	--height: 794;
-	--width_px: 560px;
-	--height_px: 794px;
-	--ratio: 148 / 210;
+	--width: 688;
+	--height: 972;
+	--width_px: 688px;
+	--height_px: 972px;
+	--ratio: var(--width) / var(--height);
 	--containerPadding: calc(15 / var(--width) * 100%);
 	font-family: "Noto Sans JP", sans-serif;
 }
@@ -19,10 +19,12 @@ A5サイズ：148mm x 210mm（≒ 560px x 794px)
 	grid-template: auto 1fr / repeat(1, min(100%, var(--width_px)));
 	align-items: flex-start;
 	justify-content: center;
+max-width: 1280px;
 	min-height: 100vh;
 	padding: clamp(20px, calc((40 / 768) * 100%), 40px);
+margin: 0 auto;
 	@media only screen and (min-width: 1240px) {
-		grid-template: auto / repeat(2, min(100%, var(--width_px)));
+		grid-template: auto / repeat(2, min(calc(50% - 40px * .5), var(--width_px)));
 		align-items: center;
 	}
 	@media print {
