@@ -39,6 +39,8 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
 /* .wrapper */
 .myBlockFlyer {
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
   position: relative;
   line-height: 1;
   aspect-ratio: var(--ratio);
@@ -50,6 +52,21 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
   }
 }
 .myBlockFlyer::after {
+  border: 1px solid #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: var(--containerPadding);
+  z-index: 100;
+}
+.myBlockFlyer .detail {
+  flex: 1;
+  position: relative;
+  padding: calc(84 / var(--width) * 100%) var(--containerPadding) var(--containerPadding);
+}
+.myBlockFlyer .detail::after {
   content: "";
   border: 1px solid #000;
   position: absolute;
@@ -62,6 +79,8 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
 }
 .myBlockFlyer .logo {
   position: absolute;
+  top: 0;
+  left: 0;
   margin-top: var(--containerPadding);
   margin-left: var(--containerPadding);
   width: calc(100 / var(--width) * 100%);
@@ -70,8 +89,6 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
   border: 1px solid #000;
 }
 .myBlockFlyer .block01 {
-  position: absolute;
-  margin-top: calc(100 / var(--width) * 100%);
   color: #000;
   font-weight: 900;
   text-align: center;
@@ -85,19 +102,10 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
   font-size: min(42 / var(--width) * 100vw, 42px);
 }
 .myBlockFlyer .youtube {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: calc(230 / var(--width) * 100%) var(--containerPadding) 0;
-}
-.myBlockFlyer .youtube__title {
-  color: #000;
-  font-size: min(20 / var(--width) * 100vw, 20px);
-  font-weight: bold;
-  margin-bottom: calc(20 / var(--width) * 100%);
+  margin: calc(30 / var(--width) * 100%) 0 calc(30 / var(--width) * 100%);
 }
 .myBlockFlyer .youtube__item * {
-  aspect-ratio: 400/300;
+  aspect-ratio: 300/200;
   width: 100%;
   height: 100%;
 }
@@ -111,19 +119,35 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
     display: none;
   }
 }
-.myBlockFlyer .detail {
-  background-color: #ccccff;
-  position: absolute;
-  bottom: 0;
+.myBlockFlyer .player {
+  color: #000;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: calc(16 / var(--width) * 100%);
+  padding: 0 var(--containerPadding);
+}
+.myBlockFlyer .player__txt01 {
+  font-size: min(30 / var(--width) * 100vw, 30px);
+  margin-bottom: calc(20 / var(--width) * 100%);
+}
+.myBlockFlyer .player__txt02 {
+  font-size: min(22 / var(--width) * 100vw, 22px);
+  line-height: 1.4;
+}
+.myBlockFlyer .info {
+  background-color: #ddddff;
+  font-size: min(20 / var(--width) * 100vw, 20px);
+  text-shadow: 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000, 0 0 1px #000;
   width: 100%;
   padding: var(--containerPadding);
 }
-.myBlockFlyer .detail__txt01 {
-  font-size: min(24 / var(--width) * 100vw, 24px);
+.myBlockFlyer .info__txt01 {
+  font-size: min(28 / var(--width) * 100vw, 28px);
   font-weight: 900;
+  margin-bottom: 10px;
 }
-.myBlockFlyer .detail__txt02 {
-  font-size: min(16 / var(--width) * 100vw, 16px);
+.myBlockFlyer .info__txt02:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 /* .myBlockFlyer */
