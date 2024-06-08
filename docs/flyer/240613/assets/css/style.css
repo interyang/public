@@ -7,8 +7,8 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
   --height: 972;
   --width_px: 688px;
   --height_px: 972px;
-  --ratio: var(--width) / var(--height);
   --containerPadding: calc(15 / var(--width) * 100%);
+  background-color: #000;
   font-family: "Noto Sans JP", sans-serif;
 }
 
@@ -31,17 +31,19 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
 }
 @media print {
   .wrapper {
-    grid-template-rows: 1fr;
+    grid-template: 1fr/1fr;
+    align-items: center;
+    width: calc(100% - var(--containerPadding) * 2);
     padding: 0;
   }
 }
 
 /* .wrapper */
 .myBlockFlyer {
-  background-color: #fff;
   position: relative;
   line-height: 1;
-  aspect-ratio: var(--ratio);
+  aspect-ratio: var(--height)/var(--width);
+  padding: var(--containerPadding);
   z-index: 1;
 }
 @media print {
@@ -51,29 +53,44 @@ B5サイズ：182mm x 257mm（≒ 688px x 972px)
 }
 .myBlockFlyer::after {
   content: "";
-  border: 1px solid #000;
+  border: 1px solid #fff;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: var(--containerPadding);
-  z-index: -1;
+  margin: 0;
+  z-index: 1;
 }
 .myBlockFlyer .logo {
   position: absolute;
+  top: 0;
+  right: 0;
   margin-top: var(--containerPadding);
   margin-left: var(--containerPadding);
-  width: calc(100 / var(--width) * 100%);
+  margin-right: var(--containerPadding);
+  width: calc(80 / var(--width) * 100%);
+  z-index: 2;
 }
 .myBlockFlyer .logo img {
-  border: 1px solid #000;
+  border: 1px solid #fff;
+}
+.myBlockFlyer .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.myBlockFlyer .img img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 
 /* .myBlockFlyer */
 .myBlockContents {
   position: relative;
-  z-index: 2;
 }
 @media only screen and (min-width: 1240px) {
   .myBlockContents {
